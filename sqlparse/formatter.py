@@ -115,7 +115,8 @@ def validate_options(options):
     comma_first = options.get('comma_first', False)
     if comma_first not in [True, False]:
         raise SQLParseError('comma_first requires a boolean value')
-    options['comma_first'] = True #comma_first # Fixed for me.
+    options['comma_first'] = True # Since we can't enable it in atom-beautifyer,
+                                  # we change it in the source code which it uses.
 
     right_margin = options.get('right_margin')
     if right_margin is not None:
@@ -172,7 +173,8 @@ def build_filter_stack(stack, options):
                 indent_after_first=options['indent_after_first'],
                 indent_columns=options['indent_columns'],
                 wrap_after=options['wrap_after'],
-                comma_first=True )) #options['comma_first'])) # Fixed for me.
+                comma_first=True )) # Since we can't enable it in atom-beautifyer,
+                                    # we change it in the source code which it uses.
 
     if options.get('reindent_aligned', False):
         stack.enable_grouping()
